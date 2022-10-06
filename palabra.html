@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Ahorcado - Agregar Palabra</title>
+</head>
+<body>
+    <header>
+
+        <h1><img src="recursos/logoAlura.svg" alt="logo Alura"></h1>
+
+    </header>
+    
+    <main>
+
+        <div>
+            <canvas width="1" height="1"></canvas>      <!--canvas generado para no tener error en el script-->
+        </div>
+
+        <div>
+            <input id="palabra" type="text" placeholder="Ingrese nueva palabra">
+            
+            <p>&#9432 No admite números ni caracteres especiales, y debe tener al menos cuatro caracteres</p>
+
+        </div>
+
+        <div>
+
+            <button id="guardarPalabra" type="button">Agregar palabra</button>
+
+            <button id="resetCache" type="button">Borrar todo</button>
+
+            <button id="actualizar" type="button"><a href="index.html">Volver</a></button>
+
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+
+    <footer>
+
+        <h2><a href="https://www.linkedin.com/in/zalotores" target="_blank">@zalotores</a></h2>
+        <p>ONE - Sin copyright</p>
+
+    </footer>
+
+</body>
+</html>
