@@ -1,4 +1,5 @@
 let botonComenzar = document.getElementById('comenzarRandom');        //para propio.html
+let letraInput = document.getElementById('char');
 
 let pantalla = document.querySelector("canvas");
 let ctx = pantalla.getContext("2d");
@@ -403,6 +404,7 @@ function capturarCaracter() {       //Captura la letra ingresada y verifica que 
            letraIncorrecta(name);
         }
     }
+    letraInput.value = '';
 
 }
 

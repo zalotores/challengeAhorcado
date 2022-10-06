@@ -6,6 +6,7 @@ let ctx = pantalla.getContext("2d");
 let guardarPalabra = document.getElementById('guardarPalabra');     //para palabra.html
 let resetCache = document.getElementById('resetCache'); 
 let palabraIn = document.getElementById('palabra');
+let letraInput = document.getElementById('char'); 
 
 let buffer = [      //cargo el buffer de palabras en cache
     "VIVO",
@@ -478,6 +479,7 @@ function capturarCaracter() {       //Captura la letra ingresada y verifica que 
            letraIncorrecta(name);
         }
     }
+    letraInput.value = '';
 
 }
 

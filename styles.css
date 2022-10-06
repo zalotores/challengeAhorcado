@@ -12,8 +12,10 @@ div > p {
     padding: 20px;
 }
 
-.char {
+#id {
     width: 40px;
+    border-color: darkblue;
+    border-width: 1;
 } 
 
 input {
