@@ -12,6 +12,10 @@ div > p {
     padding: 20px;
 }
 
+.char {
+    width: 40px;
+} 
+
 input {
     background: #cce5ff;
     border-width: 0;
