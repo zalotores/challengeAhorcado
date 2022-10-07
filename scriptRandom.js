@@ -1,5 +1,6 @@
 let botonComenzar = document.getElementById('comenzarRandom');        //para propio.html
 let letraInput = document.getElementById('char');
+let cargarchar = document.getElementById('cargarChar');
 
 let pantalla = document.querySelector("canvas");
 let ctx = pantalla.getContext("2d");
@@ -388,6 +389,25 @@ function controlarletra(x) {        //controla si la letra esta en la palabra y 
     return resultado;
 }
 
+function leerLetra() {
+    var charCapturado = letraInput.value;
+    charCapturado = charCapturado.toUpperCase;
+
+    if (!((charCapturado >= 'A') && (charCapturado <= 'Z'))) {
+        alert("caracter no permitido!");
+    }
+    else {
+        if(controlarletra(name)) {
+            letraCorrecta(name);
+        }
+        else {
+           letraIncorrecta(name);
+        }
+    }
+
+    letraInput.value = '';
+}
+
 function capturarCaracter() {       //Captura la letra ingresada y verifica que sea una letra
 
     var name = event.key;
@@ -404,7 +424,6 @@ function capturarCaracter() {       //Captura la letra ingresada y verifica que 
            letraIncorrecta(name);
         }
     }
-    letraInput.value = '';
 
 }
 
@@ -486,6 +505,7 @@ function ahorcar() {                            //funcion principal, va dibujand
 
     // Add event listener on keydown
     document.addEventListener('keydown', capturarCaracter, true);
+    cargarchar.addEventListener( "click",leerLetra,true);
 
     ctx.beginPath();
     ctx.fillStyle = '#ADB5BD';      //circulo de ayuda

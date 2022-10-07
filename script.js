@@ -7,6 +7,7 @@ let guardarPalabra = document.getElementById('guardarPalabra');     //para palab
 let resetCache = document.getElementById('resetCache'); 
 let palabraIn = document.getElementById('palabra');
 let letraInput = document.getElementById('char'); 
+let cargarchar = document.getElementById('cargarChar');
 
 let buffer = [      //cargo el buffer de palabras en cache
     "VIVO",
@@ -463,6 +464,25 @@ function cartelFinJuego(x) {        //escribe si ganaste o perdiste, 0 perde o 1
     }
 }
 
+function leerLetra() {
+    var charCapturado = letraInput.value;
+    charCapturado = charCapturado.toUpperCase;
+
+    if (!((charCapturado >= 'A') && (charCapturado <= 'Z'))) {
+        alert("caracter no permitido!");
+    }
+    else {
+        if(controlarletra(name)) {
+            letraCorrecta(name);
+        }
+        else {
+           letraIncorrecta(name);
+        }
+    }
+
+    letraInput.value = '';
+}
+
 function capturarCaracter() {       //Captura la letra ingresada y verifica que sea una letra
 
     var name = event.key;
@@ -479,7 +499,6 @@ function capturarCaracter() {       //Captura la letra ingresada y verifica que 
            letraIncorrecta(name);
         }
     }
-    letraInput.value = '';
 
 }
 
@@ -568,6 +587,7 @@ function ahorcar() {                            //funcion principal, va dibujand
 
     // Add event listener on keydown
     document.addEventListener('keydown', capturarCaracter, true);
+    cargarchar.addEventListener( "click",leerLetra,true);
 
     ctx.beginPath();
     ctx.fillStyle = '#ADB5BD';      //circulo de ayuda

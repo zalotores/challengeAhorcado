@@ -12,11 +12,18 @@ div > p {
     padding: 20px;
 }
 
-#id {
+#char {
     width: 40px;
     border-color: darkblue;
-    border-width: 1;
-} 
+    border: 2px;
+    border-width: 2px;
+    background-color: azure;
+}
+
+#cargarChar {
+    width: 80px; 
+    margin-left: 10px;
+}
 
 input {
     background: #cce5ff;
