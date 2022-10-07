@@ -40,27 +40,6 @@ function leerPalabra() {        //guarda la palabra a adivinar
     }
 }
 
-function cargarLetrasCorrectas() {      //carga el vector de letras que componen la palabra para verificacion
-
-    var i;
-    var j;
-    var largo = 0;
-    var flagCarga = true;      //flag para ver si se repite un caracter
-    listacharCorrectos.push(palabra[0]);
-    for( i = 1; i < n; i++) {
-        flagCarga = true;
-        for( j = 0; j < largo; j++) {
-            if(palabra[i] == listacharCorrectos[j]) {
-                flagCarga = false;
-            }
-        };
-        if(flagCarga) {
-            listacharCorrectos.push(palabra[i]);
-            largo = listacharCorrectos.length;
-        }
-    }
-}
-
 function dibujarlineas(n) {     //n es la cantidad de letras de la palabra
 
     var paso = 0;       // aca veo cuantos espacios tengo que crear, y si la palabra es par o no
@@ -285,6 +264,27 @@ function dibujarPatibulo(caso)
     
 }
 
+function cargarLetrasCorrectas() {      //carga el vector de letras que componen la palabra para verificacion
+
+    var i;
+    var j;
+    var largo = 0;
+    var flagCarga = true;      //flag para ver si se repite un caracter
+    listacharCorrectos.push(palabra[0]);
+    for( i = 1; i < n; i++) {
+        flagCarga = true;
+        for( j = 0; j < largo; j++) {
+            if(palabra[i] == listacharCorrectos[j]) {
+                flagCarga = false;
+            }
+        };
+        if(flagCarga) {
+            listacharCorrectos.push(palabra[i]);
+            largo = listacharCorrectos.length;
+        }
+    }
+}
+
 function cartelFinJuego(x) {        //escribe si ganaste o perdiste, 0 perde o 1 gana
     ctx.font='italic 80px Arial';
     ctx.strokeStyle = 'black';
@@ -389,19 +389,18 @@ function controlarletra(x) {        //controla si la letra esta en la palabra y 
     return resultado;
 }
 
-function leerLetra() {
-    var charCapturado = letraInput.value;
-    charCapturado = charCapturado.toUpperCase;
+function leerLetra(x) {
+    var charCapturado = x.toUpperCase();
 
     if (!((charCapturado >= 'A') && (charCapturado <= 'Z'))) {
         alert("caracter no permitido!");
     }
     else {
-        if(controlarletra(name)) {
-            letraCorrecta(name);
+        if(controlarletra(charCapturado)) {
+            letraCorrecta(charCapturado);
         }
         else {
-           letraIncorrecta(name);
+           letraIncorrecta(charCapturado);
         }
     }
 
@@ -504,8 +503,9 @@ function ahorcar() {                            //funcion principal, va dibujand
     dibujarPatibulo(0);
 
     // Add event listener on keydown
-    document.addEventListener('keydown', capturarCaracter, true);
-    cargarchar.addEventListener( "click",leerLetra,true);
+    letraInput.addEventListener('keydown', (e) => {
+        leerLetra(e.key);
+      });
 
     ctx.beginPath();
     ctx.fillStyle = '#ADB5BD';      //circulo de ayuda
