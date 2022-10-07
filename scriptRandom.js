@@ -407,25 +407,6 @@ function leerLetra(x) {
     letraInput.value = '';
 }
 
-function capturarCaracter() {       //Captura la letra ingresada y verifica que sea una letra
-
-    var name = event.key;
-    name = name.toUpperCase();
-    var asci = name.charCodeAt(0);
-    if (!((asci >= 65) && (asci <= 90))) {
-        alert("caracter no permitido!");
-    }
-    else {
-        if(controlarletra(name)) {
-            letraCorrecta(name);
-        }
-        else {
-           letraIncorrecta(name);
-        }
-    }
-
-}
-
 function ayuda(evento){       //carga una letra correcta cada vez que se presiona
     var x = evento.pageX - pantalla.offsetLeft;
 	var y = evento.pageY - pantalla.offsetTop;
