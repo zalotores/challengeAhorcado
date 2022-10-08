@@ -403,7 +403,6 @@ function leerLetra(x) {
             alert("caracter no permitido!");
         }
         else {
-            alert(charCapturado.length);
             if(controlarletra(charCapturado)) {
                 letraCorrecta(charCapturado);
             }

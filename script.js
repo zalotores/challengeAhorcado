@@ -6,6 +6,8 @@ let ctx = pantalla.getContext("2d");
 let guardarPalabra = document.getElementById('guardarPalabra');     //para palabra.html
 let resetCache = document.getElementById('resetCache'); 
 let palabraIn = document.getElementById('palabra');
+let letraInput = document.getElementById('char');
+let cargarchar = document.getElementById('cargarChar');
 
 let buffer = [      //cargo el buffer de palabras en cache
     "VIVO",
@@ -462,18 +464,26 @@ function cartelFinJuego(x) {        //escribe si ganaste o perdiste, 0 perde o 1
     }
 }
 
+function cargarLetra(){             //para cargar letra con teclado virtual
+    var entrada = letraInput.value;
+    leerLetra(entrada);
+    letraInput.value = "";
+}
+
 function leerLetra(x) {
     var charCapturado = x.toUpperCase();
 
-    if (!((charCapturado >= 'A') && (charCapturado <= 'Z'))) {
-        alert("caracter no permitido!");
-    }
-    else {
-        if(controlarletra(charCapturado)) {
-            letraCorrecta(charCapturado);
+    if((charCapturado.length) == 1) {       //debug para android
+        if (!((charCapturado >= 'A') && (charCapturado <= 'Z'))) {
+            alert("caracter no permitido!");
         }
         else {
-           letraIncorrecta(charCapturado);
+            if(controlarletra(charCapturado)) {
+                letraCorrecta(charCapturado);
+            }
+            else {
+               letraIncorrecta(charCapturado);
+            }
         }
     }
 
@@ -585,6 +595,7 @@ function ahorcar() {                            //funcion principal, va dibujand
     document.addEventListener('keydown', (e) => {
         leerLetra(e.key);
     });
+    cargarchar.addEventListener( "click",cargarLetra,true);     //para teclado virtual
 
     ctx.beginPath();
     ctx.fillStyle = '#ADB5BD';      //circulo de ayuda
