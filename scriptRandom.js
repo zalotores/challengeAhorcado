@@ -391,6 +391,7 @@ function controlarletra(x) {        //controla si la letra esta en la palabra y 
 
 function leerLetra(x) {
     var charCapturado = x.toUpperCase();
+    alert(x);
     alert(charCapturado);
 
     if (!((charCapturado >= 'A') && (charCapturado <= 'Z'))) {
