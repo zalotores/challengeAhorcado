@@ -398,15 +398,17 @@ function cargarLetra(){             //para cargar letra con teclado virtual
 function leerLetra(x) {
     var charCapturado = x.toUpperCase();
 
-    if (!((charCapturado >= 'A') && (charCapturado <= 'Z'))) {
-        alert("caracter no permitido!");
-    }
-    else {
-        if(controlarletra(charCapturado)) {
-            letraCorrecta(charCapturado);
+    if(charCapturado != "UNIDENTIFIED") {       //debug para android
+        if (!((charCapturado >= 'A') && (charCapturado <= 'Z'))) {
+            alert("caracter no permitido!");
         }
         else {
-           letraIncorrecta(charCapturado);
+            if(controlarletra(charCapturado)) {
+                letraCorrecta(charCapturado);
+            }
+            else {
+               letraIncorrecta(charCapturado);
+            }
         }
     }
 
