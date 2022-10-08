@@ -1,6 +1,4 @@
 let botonComenzar = document.getElementById('comenzarRandom');        //para propio.html
-let letraInput = document.getElementById('char');
-let cargarchar = document.getElementById('cargarChar');
 
 let pantalla = document.querySelector("canvas");
 let ctx = pantalla.getContext("2d");
@@ -391,8 +389,6 @@ function controlarletra(x) {        //controla si la letra esta en la palabra y 
 
 function leerLetra(x) {
     var charCapturado = x.toUpperCase();
-    alert(x);
-    alert(charCapturado);
 
     if (!((charCapturado >= 'A') && (charCapturado <= 'Z'))) {
         alert("caracter no permitido!");
@@ -406,7 +402,6 @@ function leerLetra(x) {
         }
     }
 
-    letraInput.value = '';
 }
 
 function ayuda(evento){       //carga una letra correcta cada vez que se presiona
@@ -486,9 +481,9 @@ function ahorcar() {                            //funcion principal, va dibujand
     dibujarPatibulo(0);
 
     // Add event listener on keydown
-    letraInput.addEventListener('keydown', (e) => {
+    document.addEventListener('keydown', (e) => {
         leerLetra(e.key);
-      });
+    });
 
     ctx.beginPath();
     ctx.fillStyle = '#ADB5BD';      //circulo de ayuda
