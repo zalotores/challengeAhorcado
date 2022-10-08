@@ -14,7 +14,6 @@ let listacharCorrectos = [];
 let listacharIncorrectos = [];
 let intentosCorrectos = 0;
 let intentosIncorrectos = 0;
-let flagControlAndroid = 0;     //flag para evitar bug en android
 
 const espacio = 10;     //aca seteo las variables de posicion para letras y renglones, declaradas global para usar en las distintas funciones
 const renglon = 30;
@@ -394,13 +393,12 @@ function cargarLetra(){             //para cargar letra con teclado virtual
     var entrada = letraInput.value;
     leerLetra(entrada);
     letraInput.value = "";
-    flagControlAndroid += 1;
 }
 
 function leerLetra(x) {
     var charCapturado = x.toUpperCase();
 
-    if(flagControlAndroid != 0) {       //debug para android
+    if((charCapturado.length) == 1) {       //debug para android
         if (!((charCapturado >= 'A') && (charCapturado <= 'Z'))) {
             alert("caracter no permitido!");
         }
@@ -470,7 +468,6 @@ function sortearPosicion(maximo) {              //genera un numero aleatorio ent
 function ahorcar() {                            //funcion principal, va dibujando el ahorcado
 
     finDeJuego = false;
-    flagControlAndroid = 0;
     leerPalabra();
     n = palabra.length;
     ctx.clearRect(0, 0, 600, 400);       //limpia pantalla en caso de mas de una partida
