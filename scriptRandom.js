@@ -1,4 +1,6 @@
 let botonComenzar = document.getElementById('comenzarRandom');        //para propio.html
+let letraInput = document.getElementById('char');
+let cargarchar = document.getElementById('cargarChar');
 
 let pantalla = document.querySelector("canvas");
 let ctx = pantalla.getContext("2d");
