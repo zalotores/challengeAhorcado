@@ -387,6 +387,12 @@ function controlarletra(x) {        //controla si la letra esta en la palabra y 
     return resultado;
 }
 
+function cargarLetra(){             //para cargar letra con teclado virtual
+    var entrada = letraInput.value;
+    leerLetra(entrada);
+    letraInput.value = "";
+}
+
 function leerLetra(x) {
     var charCapturado = x.toUpperCase();
 
@@ -484,6 +490,7 @@ function ahorcar() {                            //funcion principal, va dibujand
     document.addEventListener('keydown', (e) => {
         leerLetra(e.key);
     });
+    cargarchar.addEventListener( "click",cargarLetra,true);     //para teclado virtual
 
     ctx.beginPath();
     ctx.fillStyle = '#ADB5BD';      //circulo de ayuda
